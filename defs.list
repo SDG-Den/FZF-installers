@@ -1,0 +1,26 @@
+apk^apk update; apk list -u^sudo apk upgrade -a --no-interactive
+apt^apt update; apt list --upgradable^sudo apt upgrade -y
+aur^yay -Qua^yay -Syu --noconfirm
+brew^brew outdated^brew upgrade
+dnf^dnf check-update^sudo dnf upgrade -y
+emerge^emerge --pretend --update @world^sudo emerge --update @world
+equo^equo update; equo list --updates^sudo equo upgrade
+flatpak^flatpak list --updates^flatpak update -y
+guix^guix pull; guix package -u --dry-run^sudo guix package -u
+nix-env^nix-env -u --dry-run^nix-env -u
+nix-shell^nix-shell -u --dry-run^nix-shell -u
+opkg^opkg list-upgradable^sudo opkg upgrade
+pacman^checkupdates^sudo pacman -Syu --noconfirm
+slackpkg^slackpkg check-updates^sudo slackpkg upgrade-all
+snap^snap list | grep -E '^[a-zA-Z0-9-]+ +[0-9]+\.[0-9]+\.[0-9]+ +[0-9]+$'^snap refresh
+swupd^swupd check-update^sudo swupd update
+tazpkg^tazpkg list-upgrades^sudo tazpkg upgrade
+xbps^xbps-query -u^sudo xbps-install -Syu
+yum^yum check-update^sudo yum update -y
+zypper^zypper list-updates^sudo zypper update -y
+conda^conda list --updatable^conda update --all -y
+cargo^cargo install --list | grep -E '^cargo-(outdated|update)' || echo 'cargo-outdated not installed'^cargo install cargo-outdated && cargo outdated
+composer^composer outdated^composer update
+gem^gem outdated^gem update
+pip^pip list --outdated^pip list --outdated | awk 'NR>2 {print \$1}' | xargs pip install -U
+pnpm^cd ~ && pnpm outdated^pnpm update
